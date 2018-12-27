@@ -7,15 +7,32 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
+import Todo from './Todo';
+import Addtodo from './Addtodo'
 
 class Home extends React.Component{
   state={
-    name: 'Ryue'
+    todos:[
+      {id:1, content: 'Create a working micro frontends app'},
+      {id:2, content: 'Work out a little bit'}
+    ]
   }
+
+  deleteTodo = (id) =>{
+    const newtodos = this.state.todos.filter(todo => {
+      return todo.id !== id
+    })
+    this.setState({
+      todos:newtodos
+    })
+  }
+
   render(){
     return(
-      <div>
-        <h1>Hey from {this.state.name}</h1>
+      <div className='todoapp container'>
+        <h1 className='center blue-text'>Todo's</h1>
+        <Todo todos={this.state.todos} deleteTodo={this.deleteTodo} />
+        <Addtodo />
       </div>
     )
   }
