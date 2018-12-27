@@ -1,12 +1,10 @@
 // .babelrc
 {
-    "presets": [
-      ["env", {
-        "targets": {
-          "browsers": ["last 2 versions"]
-        }
-      }],
-      ["react"]
+  "presets": [
+      [
+        "es2015", { "modules": false, "loose": true }],
+        "react",
+        "stage-0"
     ],
     "plugins": [
       "syntax-dynamic-import",
