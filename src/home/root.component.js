@@ -1,40 +1,57 @@
 import React from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
   Link,
   Redirect
 } from "react-router-dom";
-import Todo from './Todo';
-import Addtodo from './Addtodo'
+import Login from './login';
+import Allposts from './allposts';
+import Post from './post';
+
 
 class Home extends React.Component{
   state={
-    todos:[
-      {id:1, content: 'Create a working micro frontends app'},
-      {id:2, content: 'Work out a little bit'}
-    ]
+    email: document.cookie || '',
+    islogged:''
   }
 
-  deleteTodo = (id) =>{
-    const newtodos = this.state.todos.filter(todo => {
-      return todo.id !== id
-    })
+
+
+  setemail =(v)=>{
     this.setState({
-      todos:newtodos
-    })
+      email: this.state.email.concat(v)
+    },() => {
+      //localStorage.setItem('email', JSON.stringify(this.state.email))
+      var date = new Date();
+      var min=1;
+      date.setTime(date.getTime() + (min * 60 * 1000)); //1 min
+      window.document.cookie = 'email' + "=" + this.state.email + "; expires=" + date.toGMTString();
+      //document.cookie=this.state.email;
+    });
   }
 
   render(){
-    return(
-      <div className='todoapp container'>
-        <h1 className='center blue-text'>Todo's</h1>
-        <Todo todos={this.state.todos} deleteTodo={this.deleteTodo} />
-        <Addtodo />
-      </div>
-    )
+
+        return(
+              this.state.email ? (
+                  <div className="container">
+                    <h1>Logged in successfuly {this.state.email.split('=').pop()}</h1>
+                    <h5>It should show all the posts of the specific user</h5>
+                    <Allposts />
+                  </div>
+                ):
+                ( 
+      
+                  <div className="container">
+                    <Allposts />
+                  </div>
+                  
+                )
+        )
+
   }
 }
 
