@@ -72,7 +72,17 @@ render(){
         })
     ):( //No posts are found so plist is empty
         <div className="center">
-            No posts
+              <div className="row">
+                <div className="col s12 m12">
+                    <div className="card blue-grey darken-1">
+                        <div className="card-content white-text">
+                        <span className="card-title"></span>
+                        <p>No posts yet!!</p>
+                        </div>
+                        <div className="card-action"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
     return(

@@ -25,14 +25,17 @@ render(){
     const clist = comments.length ? (
         comments.map(comment =>{
             return (    //store the comments in clist
-                <div className="card" key={comment._id}>
-                    <div className="card blue-grey darken-1">
-                        <div className="card-content white-text">
-                            <span className="card-title">{comment.email}</span>
-                            <span style={{fontSize:'11px', marginLeft:'10px'}}>{comment.time.replace('T',' ').substring(0, 24-5)}</span>
-                            <p>{comment.commentbody}</p>
+                <div className="row">
+                    <div className="card col s8" key={comment._id}>
+                        <div className="card blue-grey darken-4 darken-1">
+                            <div className="card-content white-text">
+                                <span className="card-title">{comment.email}</span>
+                                <span style={{fontSize:'11px', marginLeft:'10px'}}>{comment.time.replace('T',' ').substring(0, 24-5)}</span>
+                                <p>{comment.commentbody}</p>
+                            </div>
                         </div>
                     </div>
+                    <div className="col s4"></div>
                 </div>
             )
         })
@@ -42,7 +45,7 @@ render(){
         </div>
     )
     return(
-        <div>{clist}</div>     
+        <div className="row">{clist}</div>     
     )
   }
 }
