@@ -1,6 +1,9 @@
 import React from "react";
 import axios from 'axios';  //to make the post request
-import Post from './post';
+import Comment from "./comment";
+import Allcomments from './allcomments';
+
+//Bring all posts from the DB
 
 class Allposts extends React.Component{
   
@@ -8,7 +11,8 @@ class Allposts extends React.Component{
       posts: [],
       thereIsApost:false, //if it is true then the app will show one post, 
       //if it is false then the app will show all the posts 
-      post:''
+      post:'',
+      postid:''
   } 
 
   //Bring all the posts from the posts service and store them in the state
@@ -23,6 +27,9 @@ class Allposts extends React.Component{
 
   //Bring the post that was clicked and store it in the state
 setpost =(e)=>{
+    this.setState({
+        postid:e
+    })
     //console.log(e)
     this.setState({
         thereIsApost : true
@@ -31,7 +38,8 @@ setpost =(e)=>{
     .then(res =>{
         //console.log(res.data[0])
         this.setState({
-            post: res.data[0]
+            post: res.data[0],
+            postid:res.data[0]._id
         })
     })
 
@@ -80,8 +88,16 @@ render(){
                             </div>
                         </div>    
                     </div>
+
+                    {/* to type a comment */}
+                    < Comment postid={this.state.post._id}/>
+
+                    {/* to show all comments*/}
+                    < Allcomments postid={this.state.postid}/>
+
                     {/* Go back home and show all posts*/}
                     <a className="btn-floating btn-large waves-effect waves-light red" onClick={this.backhome}><i className="material-icons">home</i></a>
+               
                 </div>
             ) : (   //show all posts
                 <div>{plist}</div>

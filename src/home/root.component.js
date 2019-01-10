@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import Login from './login';
 import Allposts from './allposts';
-import Post from './post';
+
 
 
 class Home extends React.Component{
