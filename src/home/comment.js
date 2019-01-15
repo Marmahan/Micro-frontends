@@ -64,25 +64,26 @@ render() {
                 </div>
             </div>
         ) : (               //comment is not submitted yet, then show the form to submit a comment
-            <div className="row">
-                <form onSubmit={this.handlesubmit} className="col s8">
-                    <div className="input-field">
-                        <div className="left-align">
-                            <input id="email" type="email" className="validate" required={true} aria-required="true" onChange={this.handlechange}/>
-                            <label htmlFor="email">Email</label>
+            <div className="container">
+                <div className="row">
+                    <form onSubmit={this.handlesubmit} className="col s8">
+                        <div className="input-field">
+                            <div className="left-align">
+                                <input id="email" type="email" className="validate" required={true} aria-required="true" onChange={this.handlechange}/>
+                                <label htmlFor="email">Email</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="input-field">
-                        <textarea id="commentbody" className="materialize-textarea" required={true} onChange={this.handlechange}></textarea>
-                        <label htmlFor="commentbody">Textarea</label>
-                    </div>
+                        <div className="input-field">
+                            <textarea id="commentbody" className="materialize-textarea" required={true} onChange={this.handlechange}></textarea>
+                            <label htmlFor="commentbody">Textarea</label>
+                        </div>
 
-                    <div className="left-align">  {/* This div wrapper is necessary for the left alignment */}
-                        <input type="submit"  value="Send" className="btn"/>
-                    </div>
-                </form>
-                <div className="col s4"></div>
+                        <div className="left-align">  {/* This div wrapper is necessary for the left alignment */}
+                            <input type="submit"  value="Send" className="btn"/>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
 

@@ -33,12 +33,18 @@ class Home extends React.Component{
     });
   }
 
+  getCookie = (name)=> {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+  }
+
   render(){
 
         return(
               this.state.email ? (
                   <div className="container">
-                    <h1>Logged in successfuly {this.state.email.split('=').pop()}</h1>
+                    <h1>Logged in successfuly {this.getCookie('email')}</h1>
                     <h5>It should show all the posts of the specific user</h5>
                     <Allposts />
                   </div>

@@ -25,8 +25,8 @@ render(){
     const clist = comments.length ? (
         comments.map(comment =>{
             return (    //store the comments in clist
-                <div className="row">
-                    <div className="card col s8" key={comment._id}>
+                <div >
+                    <div className="card col s8 z-depth-4" style={{padding:'0px'}} key={comment._id}>
                         <div className="card blue-grey darken-4 darken-1">
                             <div className="card-content white-text">
                                 <span className="card-title">{comment.email}</span>
@@ -45,7 +45,10 @@ render(){
         </div>
     )
     return(
-        <div className="row">{clist}</div>     
+        //<div className="container">
+            <div className="container">{clist}</div> 
+        //</div>
+            
     )
   }
 }
