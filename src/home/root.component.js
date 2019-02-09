@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Login from './login';
 import Allposts from './allposts';
+import Allpostsuser from './allpostsuser';
 
 
 
@@ -44,9 +45,12 @@ class Home extends React.Component{
         return(
               this.state.email ? (
                   <div className="container">
-                    <h1>Logged in successfuly {this.getCookie('email')}</h1>
-                    <h5>It should show all the posts of the specific user</h5>
-                    <Allposts />
+                    <br />
+                    <div className="welcomemsgparent">
+                      <h4 className="welcomemsg">Welcome {this.getCookie('email')}</h4>
+                      <div className="fade_rule"></div>  
+                    </div>
+                    <Allpostsuser />{/* This brings all posts of the logged in user */}
                   </div>
                 ):
                 ( 
@@ -62,3 +66,9 @@ class Home extends React.Component{
 }
 
 export default Home;
+
+
+
+
+
+

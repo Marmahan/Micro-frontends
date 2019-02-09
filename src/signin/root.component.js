@@ -37,7 +37,7 @@ class Signin extends React.Component{
         this.setState({userlogged:true}, ()=>
           {
             var date = new Date();
-            var min=2; //this should be set as long as the jwt validity
+            var min=10; //this should be set as long as the jwt validity
             date.setTime(date.getTime() + (min * 60 * 1000)); //60 min
             document.cookie = "jwt" + "=" + response.data + "; expires=" + date.toGMTString();
             document.cookie = 'email' + "=" + this.state.email + "; expires=" + date.toGMTString();
