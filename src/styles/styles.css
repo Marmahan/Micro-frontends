@@ -30,8 +30,15 @@ i.useroptioncolor {
     margin-right: 10px;
 }
 
-
-
+/* For the logo */
+nav .brand-logo{
+  padding-left: 70px;
+  padding-top: 2px;
+}
+.blog-logo{
+   width: 85px;
+   height: 60px;
+}
 
 
 /********************************ALERT************************/

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import {navigateToUrl} from 'single-spa'
-
+import logo from './logo.png';
 
 class NavBar extends React.Component{
 
@@ -12,10 +12,12 @@ class NavBar extends React.Component{
 
   render(){
     return(
-      this.state.email ?( //user is isgned in
+      this.state.email ?( //user is signed in
         <nav>
-        <div className="nav-wrapper">
-          <a href="/" onClick={navigateToUrl} className="brand-logo">single-spa</a>
+        <div className="nav-wrapper indigo lighten-1">
+          <a href="/" onClick={navigateToUrl} className="brand-logo">
+           <img className="blog-logo" src={logo} />
+          </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><a href="/" onClick={navigateToUrl}>Home</a></li>
             <li><a href="/newpost" onClick={navigateToUrl}>New Post</a></li>
@@ -27,8 +29,11 @@ class NavBar extends React.Component{
       </nav>
       ):(       //user is not signed in
         <nav>     
-        <div className="nav-wrapper">
-          <a href="/" onClick={navigateToUrl} className="brand-logo">single-spa</a>
+        <div className="nav-wrapper indigo lighten-1">
+          
+          <a href="/" onClick={navigateToUrl} className="brand-logo ">
+            <img className="blog-logo" src={logo} />
+          </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><a href="/" onClick={navigateToUrl}>Home</a></li>
             <li><a href="/signin" onClick={navigateToUrl}>Sign in</a></li>

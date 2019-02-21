@@ -25,7 +25,7 @@ export const unmount = [
   reactLifecycles.unmount,
 ];
 
-// Finally, we specify the location we want single-spa to mount our application
+// the location where SPA mounts the application
 function domElementGetter() {
   return document.getElementById("newpost")
 }

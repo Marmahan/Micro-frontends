@@ -27,11 +27,22 @@ module.exports = {
             loader: 'babel-loader',
           },
             {
-              // This plugin will allow us to use html templates when we get to the angularJS app
+              // This plugin will allow us to use html templates wfor angularJS app
                 test: /\.html$/,
                 exclude: /node_modules/,
                 loader: 'html-loader',
             },
+            { //for url loader, also file loader must be installed to make url loader works
+              test: /\.(png|jpg|gif)$/i,
+              use: [
+                {
+                  loader: 'url-loader',
+                  options: {
+                    limit: 8192
+                  }
+                }
+              ]
+            }
         ],
     },
     node: {
