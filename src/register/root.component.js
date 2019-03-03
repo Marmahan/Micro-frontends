@@ -68,8 +68,8 @@ class Register extends React.Component{
         <div className='container'>
           <div className="row">
             <div className="card-panel center">
-              <i className="medium material-icons">email</i>
-              <h5 className='center black-text'>Contact us</h5> 
+              <i className="medium material-icons">account_circle</i>
+              <h5 className='center black-text'>Create an account</h5> 
             </div>
           </div>
           <div className="row">

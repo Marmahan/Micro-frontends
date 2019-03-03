@@ -23,7 +23,7 @@ class NavBar extends React.Component{
             <li><a href="/newpost" onClick={navigateToUrl}>New Post</a></li>
             <li><a href="/about" onClick={navigateToUrl}>About</a></li>
             <li><a href="/contactus" onClick={navigateToUrl}>Contact us</a></li>
-            <li><a href="/contactus" onClick={navigateToUrl}>Logout {this.state.email.split('=').pop()}</a></li>
+            <li><a href="/signout" onClick={navigateToUrl}>Logout {this.state.email.split('=').pop()}</a></li>
           </ul>
         </div>
       </nav>
